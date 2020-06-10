@@ -2,7 +2,7 @@
   <div id="app">
     <Navbar />
     <main class="content">
-        <section class="hero is-primary is-medium">
+        <section class="hero is-primary is-half">
           <div class="hero-body">
           </div>
         </section>
@@ -28,14 +28,9 @@ import Footer from './components/Footer.vue'
 export default class App extends Vue {}
 </script>
 
-<style lang="scss">
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
+<style scoped lang="scss">
 
-.content {
-  flex: 1;
+.is-half {
+  height: 40vh;
 }
 </style>

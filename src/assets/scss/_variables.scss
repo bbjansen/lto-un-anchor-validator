@@ -2,6 +2,9 @@
 // Modify as needed, removing the !default attribute.
 
 // Colors
+$custom:      hsl(226.9, 35.6%, 17.6%) !default;
+$success:      hsl(91.9,65.3%,71.8%) !default;
+$failure:     hsl(0, 64.7%, 70%) !default;
 
 $black:        hsl(0, 0%, 4%) !default;
 $black-bis:    hsl(0, 0%, 7%) !default;
@@ -75,17 +78,21 @@ $variable-columns: true !default;
 
 // The default Bulma derived variables are declared below
 
-$primary: $turquoise !default;
+$primary: $custom !default;
 
 $info: $cyan !default;
-$success: $green !default;
+$success: $success !default;
 $warning: $yellow !default;
-$danger: $red !default;
+$danger: $failure !default;
 
 $light: $white-ter !default;
 $dark: $grey-darker !default;
 
 // Invert colors
+
+$custom-invert: findColorInvert($custom) !default;
+$success-invert: findColorInvert($success) !default;
+$failure-invert: findColorInvert($failure) !default;
 
 $orange-invert: findColorInvert($orange) !default;
 $yellow-invert: findColorInvert($yellow) !default;
@@ -96,7 +103,10 @@ $blue-invert: findColorInvert($blue) !default;
 $purple-invert: findColorInvert($purple) !default;
 $red-invert: findColorInvert($red) !default;
 
-$primary-invert: $turquoise-invert !default;
+$primary-invert: $custom-invert !default;
+$success-invert: $success-invert !default;
+$failure-invert: $failure-invert !default;
+
 $info-invert: $cyan-invert !default;
 $success-invert: $green-invert !default;
 $warning-invert: $yellow-invert !default;

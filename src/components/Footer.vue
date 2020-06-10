@@ -13,3 +13,10 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class Navbar extends Vue {
 }
 </script>
+
+<style scoped lang="scss">
+.content {
+  margin-top: 20px;
+  margin-right: 10px
+}
+</style>

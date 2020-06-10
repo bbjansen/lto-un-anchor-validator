@@ -1,12 +1,15 @@
 <template>
   <div id="app">
-    <Navbar />
-    <main class="content">
-        <section class="hero is-primary is-half">
-          <div class="hero-body">
-          </div>
-        </section>
-        <Validator msg=""/>
+    <Header />
+    <main class="container">
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <Validator msg=""/>
+          <p class="is-size-7 has-text-centered" style="margin-top: 10px;">
+            <a ref="https://lto.network" class="has-text-primary"> Learn more about LTO Network </a>
+          </p>
+        </div>
+      </div>
     </main>
     <Footer />
   </div>
@@ -14,23 +17,16 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Navbar from './components/Navbar.vue'
+import Header from './components/Header.vue'
 import Validator from './components/Validator.vue'
 import Footer from './components/Footer.vue'
 
 @Component({
   components: {
-    Navbar,
+    Header,
     Validator,
     Footer
   }
 })
 export default class App extends Vue {}
 </script>
-
-<style scoped lang="scss">
-
-.is-half {
-  height: 40vh;
-}
-</style>

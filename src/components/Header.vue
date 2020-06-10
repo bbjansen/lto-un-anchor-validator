@@ -1,4 +1,5 @@
 <template>
+  <div id="header" class="is-half has-background-primary">
     <b-navbar class="is-primary">
         <template slot="brand">
             <b-navbar-item href="https://lto.network">
@@ -18,6 +19,7 @@
             </b-navbar-item>
         </template>
     </b-navbar>
+  </div>
 </template>
 
 <script lang="ts">
@@ -27,3 +29,9 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class Navbar extends Vue {
 }
 </script>
+
+<style scoped lang="scss">
+.is-half {
+  height: 40vh;
+}
+</style>

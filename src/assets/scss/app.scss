@@ -5,20 +5,27 @@
 @import "variables";
 
 // 2. Setup your Custom Colors
-$linkedin: #0077b5;
-$linkedin-invert: findColorInvert($linkedin);
-$twitter: #55acee;
-$twitter-invert: findColorInvert($twitter);
-$github: #333;
-$github-invert: findColorInvert($github);
+$secondary: hsl(228, 39%, 28%) !default;
+$tertiary: hsl(209, 56%, 56%) !default;
+
+$verified: hsl(91.9,65.3%,71.8%) !default;
+$unverified: hsl(0, 64.7%, 70%) !default;
+
+
+$secondary-invert: findColorInvert($secondary);
+$tertiary-invert: findColorInvert($tertiary);
+
+$verified-invert: findColorInvert($verified);
+$unverified-invert: findColorInvert($unverified);
 
 @import "~bulma/sass/utilities/derived-variables";
 
 // 3. Add new color variables to the color map.
 $addColors: (
-  "twitter":($twitter, $twitter-invert),
-  "linkedin": ($linkedin, $linkedin-invert),
-  "github": ($github, $github-invert)
+  "secondary":($secondary, $secondary-invert),
+  "tertiary":($tertiary, $tertiary-invert),
+  "verified": ($verified, $verified-invert),
+  "unverified": ($unverified, $unverified-invert)
 );
 $colors: map-merge($colors, $addColors);
 

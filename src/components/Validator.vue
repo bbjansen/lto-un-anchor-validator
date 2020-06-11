@@ -122,7 +122,7 @@
       </div>
 
       <footer class="has-text-centered" style="padding-top: 10px; padding-bottom: 10px;">
-        <a href="https://explorer.lto.network" class="has-text-tertiary">View on LTO Network explorer</a>
+        <a :href="'https://explorer.lto.network/transaction/' + verifiedTxID" class="has-text-tertiary">View on LTO Network explorer</a>
       </footer>
     </div>
 
@@ -175,6 +175,7 @@ export default class Validator extends Vue {
   displayWelcome = true
   displayUpload = false
   displayLoading = false
+  verifiedTxID = null
   displayVerified = false
   displayUnverified = false
   displayVerifiedDetails = false
@@ -205,9 +206,6 @@ export default class Validator extends Vue {
           const sha = await sha256(bytes)
           const hex = await base16Encode(sha)
 
-          console.log('sha: ' + sha)
-          console.log('hex: ' + hex)
-
           try {
             const check = await axios.get('https://nodes.lto.network/index/hash/' + hex)
 
@@ -219,7 +217,9 @@ export default class Validator extends Vue {
               setTimeout(function () {
                 this.displayVerified = false
                 this.displayVerifiedDetails = true
-              }.bind(this), 3000)
+              }.bind(this), 1000)
+
+              this.verifiedTxID = check.data.chainpoint.anchors[0].sourceId
             } else {
               console.log('exists, local is forged')
               this.displayUpload = false

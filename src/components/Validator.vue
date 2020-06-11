@@ -122,7 +122,7 @@
       </div>
 
       <footer class="has-text-centered" style="padding-top: 10px; padding-bottom: 10px;">
-        <a :href="'https://explorer.lto.network/transaction/' + verifiedTxID" class="has-text-tertiary">View on LTO Network explorer</a>
+        <a :href="'https://explorer.LTO.network/transaction/' + verifiedTxID" class="has-text-tertiary">View on LTO Network explorer</a>
       </footer>
     </div>
 
@@ -207,7 +207,7 @@ export default class Validator extends Vue {
           const hex = await base16Encode(sha)
 
           try {
-            const check = await axios.get('https://nodes.lto.network/index/hash/' + hex)
+            const check = await axios.get('https://nodes.LTO.network/index/hash/' + hex)
 
             if (check.data.chainpoint.targetHash === hex) {
               console.log('exists')

@@ -197,7 +197,7 @@ export default class Validator extends Vue {
       const reader = new FileReader()
       reader.readAsArrayBuffer(file)
 
-      reader.onloadend = async function (e) {
+      reader.onloadend = async (e) => {
         if (e.target.readyState === FileReader.DONE) {
           const buffer = e.target.result
           const bytes = new Uint8Array(buffer)
@@ -208,19 +208,30 @@ export default class Validator extends Vue {
           console.log('sha: ' + sha)
           console.log('hex: ' + hex)
 
-          const check = await axios.get('https://nodes.lto.network/index/hash/' + hex)
+          try {
+            const check = await axios.get('https://nodes.lto.network/index/hash/' + hex)
 
-          if (check.data.chainpoint.targetHash === hex) {
-            console.log('exists')
-            this.displayUpload = false
-            this.displayVerified = true
+            if (check.data.chainpoint.targetHash === hex) {
+              console.log('exists')
+              this.displayUpload = false
+              this.displayVerified = true
 
-            setTimeout(function () {
-              this.displayVerified = false
-              this.displayVerifiedDetails = true
-            }.bind(this), 3000)
-          } else {
-            console.log('exists, local is forged')
+              setTimeout(function () {
+                this.displayVerified = false
+                this.displayVerifiedDetails = true
+              }.bind(this), 3000)
+            } else {
+              console.log('exists, local is forged')
+              this.displayUpload = false
+              this.displayUnverified = true
+
+              setTimeout(function () {
+                this.displayUnverified = false
+                this.displayUnverifiedDetails = true
+              }.bind(this), 1000)
+            }
+          } catch (e) {
+            console.log('non-existence')
             this.displayUpload = false
             this.displayUnverified = true
 
@@ -232,7 +243,7 @@ export default class Validator extends Vue {
         }
       }
     } else {
-      console.log('forged')
+      console.log('wrong filetype')
       this.displayUpload = false
       this.displayUnverified = true
 

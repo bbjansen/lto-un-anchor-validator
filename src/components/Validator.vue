@@ -162,17 +162,16 @@
 
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
-import { sha256 } from 'js-sha256'
-import * as bs58 from 'bs58'
+import { sha256, base16Encode } from '@waves/ts-lib-crypto'
 import moment from 'moment'
-import { EncoderServiceImpl } from '../plugins/encoder'
+import axios from 'axios'
 
 @Component
 export default class Validator extends Vue {
   @Prop() private msg!: string;
 
   uploadFile = []
-  formattedDate = moment()
+  formattedDate = Date()
   displayWelcome = true
   displayUpload = false
   displayLoading = false
@@ -181,11 +180,8 @@ export default class Validator extends Vue {
   displayVerifiedDetails = false
   displayUnverifiedDetails = false
 
-  decodedAnchor: Uint8Array = new Uint8Array()
-  encoder = new EncoderServiceImpl()
-
   @Watch('uploadFile')
-  processFile (file: any) {
+  async processFile (file: File) {
     const allowedFormats = [
       'text/plain',
       'application/pdf',
@@ -195,41 +191,49 @@ export default class Validator extends Vue {
     ]
 
     if (allowedFormats.includes(file.type)) {
+      // Parse date (the lazy way)
       this.formattedDate = moment(file.lastModified).format('YYYY-MM-DD HH:mm:ss')
 
-      console.log(file)
-
       const reader = new FileReader()
-
-      let hash
-
-      reader.onload = function (e) {
-        // console.log(e)
-
-        hash = sha256.digest(e.target.result)
-      }
-
       reader.readAsArrayBuffer(file)
 
-      console.log('encrypted: ' + hash)
+      reader.onloadend = async function (this, e) {
+        console.log(this)
+        if (e.target.readyState === FileReader.DONE) {
+          const buffer = e.target.result
+          const bytes = new Uint8Array(buffer)
 
-      // const base58 = bs58.encode(encrypted)
+          const sha = await sha256(bytes)
+          const hex = await base16Encode(sha)
 
-      // console.log('base58: ' + base58)
+          console.log('sha: ' + sha)
+          console.log('hex: ' + hex)
 
-      // const fileHash = sha256.digest(file)
-      // const fileBase58Hash = bs58.encode(fileHash)
+          const check = await axios.get('https://nodes.lto.network/index/hash/' + hex)
 
-      // console.log(fileBase58Hash)
+          if (check.data.chainpoint.targetHash === hex) {
+            console.log('exists')
+            this.displayUpload = false
+            this.displayVerified = true
 
-      this.displayUpload = false
-      this.displayVerified = true
+            setTimeout(function () {
+              this.displayVerified = false
+              this.displayVerifiedDetails = true
+            }.bind(this), 3000)
+          } else {
+            console.log('exists, local is forged')
+            this.displayUpload = false
+            this.displayUnverified = true
 
-      setTimeout(function () {
-        this.displayVerified = false
-        this.displayVerifiedDetails = true
-      }.bind(this), 1000)
+            setTimeout(function () {
+              this.displayUnverified = false
+              this.displayUnverifiedDetails = true
+            }.bind(this), 1000)
+          }
+        }
+      }
     } else {
+      console.log('forged')
       this.displayUpload = false
       this.displayUnverified = true
 

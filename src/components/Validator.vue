@@ -197,8 +197,7 @@ export default class Validator extends Vue {
       const reader = new FileReader()
       reader.readAsArrayBuffer(file)
 
-      reader.onloadend = async function (this, e) {
-        console.log(this)
+      reader.onloadend = async function (e) {
         if (e.target.readyState === FileReader.DONE) {
           const buffer = e.target.result
           const bytes = new Uint8Array(buffer)

@@ -153,7 +153,7 @@
       </div>
 
       <footer class="has-text-centered" style="padding-top: 10px; padding-bottom: 10px;">
-        <a href="/" class="has-text-tertiary">Try Again</a>
+        <a href="/to-un-land-validator/" class="has-text-tertiary">Try Again</a>
       </footer>
     </div>
 

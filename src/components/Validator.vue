@@ -191,6 +191,8 @@ export default class Validator extends Vue {
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
     ]
 
+    const UNAddress = '3Jq8mnhRquuXCiFUwTLZFVSzmQt3Fu6F7HQ'
+
     if (allowedFormats.includes(file.type)) {
       // Parse date (the lazy way)
       this.formattedDate = moment(file.lastModified).format('YYYY-MM-DD HH:mm:ss')
@@ -214,26 +216,31 @@ export default class Validator extends Vue {
             const check = await axios.get('https://nodes.LTO.network/index/hash/' + hex)
 
             if (check.data.chainpoint.targetHash === hex) {
-              console.log('exists')
-              this.displayUpload = false
-              this.displayVerified = true
-
-              setTimeout(() => {
-                this.displayVerified = false
-                this.displayVerifiedDetails = true
-              }, 1000)
-
               this.verifiedTxID = check.data.chainpoint.anchors[0].sourceId
-            } else {
-              console.log('exists, local is forged')
-              this.displayUpload = false
-              this.displayUnverified = true
+              const tx = await axios.get('https://nodes.LTO.network/transactions/info/' + this.verifiedTxID)
+              console.log(tx)
 
-              setTimeout(() => {
-                this.displayUnverified = false
-                this.displayUnverifiedDetails = true
-              }, 1000)
+              if (tx.data.sender === UNAddress) {
+                console.log('exists')
+                this.displayUpload = false
+                this.displayVerified = true
+
+                setTimeout(() => {
+                  this.displayVerified = false
+                  this.displayVerifiedDetails = true
+                }, 1000)
+                return
+              }
             }
+
+            console.log('exists, local is forged')
+            this.displayUpload = false
+            this.displayUnverified = true
+
+            setTimeout(() => {
+              this.displayUnverified = false
+              this.displayUnverifiedDetails = true
+            }, 1000)
           } catch (e) {
             console.log('non-existence')
             this.displayUpload = false

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="104px" height="135px" viewBox="0 0 104 135" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <defs>
+        <path d="M0,9.93295087 C0,4.41244261 4.48062521,-0.0345815422 10.0011308,0.000202675105 C10.0011308,0.000202675105 77.8720552,0.427851366 77.872059,0.427851366 C77.8720627,0.427851366 100,22.4320232 100,22.4320227 C100,22.4320222 100,120.437327 100,120.437327 C100,125.954941 95.5252671,130.427851 89.9999362,130.427851 L10.0000638,130.427851 C4.47718108,130.427851 0,125.95496 0,120.432087 L0,9.93295087 Z" id="path-1"></path>
+        <filter x="-4.0%" y="-1.5%" width="108.0%" height="106.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="UN" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Verified" transform="translate(-668.000000, -405.000000)">
+            <g id="Group-5" transform="translate(420.000000, 208.000000)">
+                <g id="Group-4" transform="translate(183.000000, 197.000000)">
+                    <g id="Group-3" transform="translate(67.000000, 0.000000)">
+                        <g id="Group">
+                            <g id="document">
+                                <g id="Rectangle-2">
+                                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                                </g>
+                                <path d="M78,0 L100,22 L81.0013869,22 C79.3437667,22 78,20.6569187 78,18.9986131 L78,0 Z" id="Rectangle-3" fill="#D8D8D8"></path>
+                            </g>
+                            <path d="M25.706,72 L28.492,62.312 L26.392,62.312 L24.488,70.292 L22.514,62.312 L20.316,62.312 L23.2,72 L25.706,72 Z M31.46,72 L31.46,62.312 L29.402,62.312 L29.402,72 L31.46,72 Z M39.328,72 L39.328,70.488 L35.576,70.488 L35.576,67.814 L38.628,67.814 L38.628,66.33 L35.576,66.33 L35.576,63.81 L39.076,63.81 L39.3,62.312 L33.518,62.312 L33.518,72 L39.328,72 Z M44.354,72 L45.768,64.426 L47.112,72 L49.786,72 L51.48,62.312 L49.534,62.312 L48.288,70.404 L46.874,62.312 L44.704,62.312 L43.234,70.404 L42.128,62.312 L40.07,62.312 L41.75,72 L44.354,72 Z M58.172,72 L58.172,68.052 L61.084,68.052 L61.084,66.554 L58.172,66.554 L58.172,63.81 L61.518,63.81 L61.742,62.312 L56.114,62.312 L56.114,72 L58.172,72 Z M65.004,72 L65.004,62.312 L62.946,62.312 L62.946,72 L65.004,72 Z M72.732,72 L72.956,70.348 L69.12,70.348 L69.12,62.312 L67.062,62.312 L67.062,72 L72.732,72 Z M79.998,72 L79.998,70.488 L76.246,70.488 L76.246,67.814 L79.298,67.814 L79.298,66.33 L76.246,66.33 L76.246,63.81 L79.746,63.81 L79.97,62.312 L74.188,62.312 L74.188,72 L79.998,72 Z" id="VIEWFILE" fill="#5091CD" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

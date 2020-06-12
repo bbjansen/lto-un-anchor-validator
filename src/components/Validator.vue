@@ -199,9 +199,13 @@ export default class Validator extends Vue {
       reader.readAsArrayBuffer(file)
 
       reader.onloadend = async (e) => {
+        if (e.target === null) {
+          return
+        }
+
         if (e.target.readyState === FileReader.DONE) {
           const buffer = e.target.result
-          const bytes = new Uint8Array(buffer)
+          const bytes = new Uint8Array(buffer as Buffer)
 
           const sha = await sha256(bytes)
           const hex = await base16Encode(sha)
@@ -214,10 +218,10 @@ export default class Validator extends Vue {
               this.displayUpload = false
               this.displayVerified = true
 
-              setTimeout(function () {
+              setTimeout(() => {
                 this.displayVerified = false
                 this.displayVerifiedDetails = true
-              }.bind(this), 1000)
+              }, 1000)
 
               this.verifiedTxID = check.data.chainpoint.anchors[0].sourceId
             } else {
@@ -225,20 +229,20 @@ export default class Validator extends Vue {
               this.displayUpload = false
               this.displayUnverified = true
 
-              setTimeout(function () {
+              setTimeout(() => {
                 this.displayUnverified = false
                 this.displayUnverifiedDetails = true
-              }.bind(this), 1000)
+              }, 1000)
             }
           } catch (e) {
             console.log('non-existence')
             this.displayUpload = false
             this.displayUnverified = true
 
-            setTimeout(function () {
+            setTimeout(() => {
               this.displayUnverified = false
               this.displayUnverifiedDetails = true
-            }.bind(this), 1000)
+            }, 1000)
           }
         }
       }
@@ -247,10 +251,10 @@ export default class Validator extends Vue {
       this.displayUpload = false
       this.displayUnverified = true
 
-      setTimeout(function () {
+      setTimeout(() => {
         this.displayUnverified = false
         this.displayUnverifiedDetails = true
-      }.bind(this), 1000)
+      }, 1000)
     }
   }
 

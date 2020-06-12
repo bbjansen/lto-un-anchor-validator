@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: ''
+  publicPath: '/lto-un-land-validator/'
 }

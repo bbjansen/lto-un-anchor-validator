@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.1f0fb4861b6c44d94bdc1df0cd37021f.js"
+  "precache-manifest.2b70362de3ac43bffe5509c156715924.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "lto-un-land-validator"});

@@ -6,7 +6,7 @@
         <div class="column is-half is-offset-one-quarter">
           <Validator msg=""/>
           <p class="is-size-7 has-text-centered" style="margin-top: 10px;">
-            <a ref="https://lto.network" class="has-text-primary"> Learn more about LTO Network </a>
+            <a href="https://lto.network" class="has-text-primary"> Learn more about LTO Network </a>
           </p>
         </div>
       </div>

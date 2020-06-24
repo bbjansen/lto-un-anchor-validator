@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="106px" height="135px" viewBox="0 0 106 135" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>document</title>
+    <defs>
+        <path d="M0,9.93295087 C0,4.41244261 4.48062521,-0.0345815422 10.0011308,0.000202675105 C10.0011308,0.000202675105 77.8720552,0.427851366 77.872059,0.427851366 C77.8720627,0.427851366 100,22.4320232 100,22.4320227 C100,22.4320222 100,120.437327 100,120.437327 C100,125.954941 95.5252671,130.427851 89.9999362,130.427851 L10.0000638,130.427851 C4.47718108,130.427851 0,125.95496 0,120.432087 L0,9.93295087 Z" id="path-1"></path>
+        <filter x="-4.0%" y="-1.5%" width="108.0%" height="106.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="UN" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Welcome" transform="translate(-667.000000, -399.000000)">
+            <g id="form" transform="translate(420.000000, 267.000000)">
+                <g id="upload-field" transform="translate(50.000000, 45.000000)">
+                    <g id="Group-2" transform="translate(168.000000, 87.000000)">
+                        <g id="Group-3" transform="translate(0.750000, 0.000000)">
+                            <g id="document" transform="translate(31.250000, 0.000000)">
+                                <g id="Rectangle-2">
+                                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                                </g>
+                                <path d="M78,0 L100,22 L81.0013869,22 C79.3437667,22 78,20.6569187 78,18.9986131 L78,0 Z" id="Rectangle-3" fill="#D8D8D8"></path>
+                                <path d="M50.5,48 C51.1769288,48 51.7910193,48.2703852 52.2411743,48.7084461 L52.3033009,48.767767 C52.4238184,48.8882845 52.5293712,49.0181331 52.6200001,49.1549901 L59.3076968,55.8432308 C60.2738488,56.8093827 60.2796116,58.3980579 59.3033009,59.3743687 L59.3033009,59.3743687 L59.1718143,59.4970002 C58.1844366,60.3552335 56.7037031,60.3103048 55.7721629,59.3787647 L55.7721629,59.3787647 L52.9990776,56.605 L53,80.4969323 C53,81.8240422 51.9773354,82.9099283 50.6654403,82.9946758 L50.5,83 C49.1192881,83 48,81.8751281 48,80.4969323 L47.9990776,56.606 L45.2278371,59.3787647 C44.2962969,60.3103048 42.8155634,60.3552335 41.8281857,59.4970002 L41.6966991,59.3743687 C40.7203884,58.3980579 40.7261512,56.8093827 41.6923032,55.8432308 L48.3799999,49.1549901 C48.4706288,49.0181331 48.5761816,48.8882845 48.6966991,48.767767 L48.6454962,48.820711 C49.0671003,48.3544962 49.6629264,48.0487112 50.3345597,48.0053242 L50.5,48 Z" id="up" fill="#5091CD"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
